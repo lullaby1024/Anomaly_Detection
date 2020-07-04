@@ -19,15 +19,18 @@
 - Subsequences were created with a time step of 30 so that a 30-day window was taken into consideration.
 
 ## Model
-<img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/model.png" width="30%">
+<img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/model.png" width="35%">
 
 - **Baseline**: 32 units in LSTM layers, 0.2 dropout rate, 0.01 learning rate
-- **Tuned model**: 128 units in LSTM layers, 0.2 dropout rate, 0.001 learning rate
+- **Tuned model**: 128 units in LSTM layers, 0.3 dropout rate, 0.001 learning rate
   - Tuning method: Hyperband
 - Early stopping was applied in training to prevent overfitting. 
   - Patience was set to 3 so that no improvement in 3 epochs will terminate training.
 
-
 ## Detecting Anomalies
 - A data point is identified as anomaly if its test loss exceeds the **threshold**.
-- From the distribution of training loss (MAE), since most training losses fall below 0.7, we will set the `threshold = 0.7`.
+- From the distribution of training loss (MAE), since most training losses (90%) fall below 0.7, threshold was set to 0.7.
+<img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/test_loss.png" width="65%">
+<img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies.png" width="65%">
+<img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_zoomed.png" width="65%">
+
