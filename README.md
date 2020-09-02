@@ -37,10 +37,14 @@
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_zoomed.png" width="65%">
 
 ## Other ML techniques
-- For comparison, other unsupervised ML techniques, including Isolation Forest, One-class SVM and DBSCAN, were employed for anomaly detection. The test date range is identical to that used for the LSTM, which starts from '2015-03-31'. 
-<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn.png width="55%">
-<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn_zoomed.png width="55%">
-
+- For comparison, other unsupervised ML techniques were employed for anomaly detection. The test date range is identical to that used for the LSTM, which starts from '2015-03-31'. 
+- Model parameters
+  - `IsolationForest(contamination=0.01, random_state=SEED)`
+  - `OneClassSVM(nu=0.01)`
+  - `DBSCAN(eps=0.01, min_samples=5)`
+- Remark
+<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn.gif width="55%">
+<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn_zoomed.gif width="55%">
 
 ## Historical Research and Business implications
 - Anomalies occurred at early February, 2018 and late March, 2018.
