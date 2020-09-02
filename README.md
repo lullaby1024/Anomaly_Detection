@@ -1,6 +1,6 @@
 # Anomaly Detection
 ## Introduction
-- This project applies LSTM autoencoders in Keras to detect anomalies with the S&P 500 time series data. By detecting anomalies, this project aims to answer questions like when one should sell/buy a stock and how early can one capture the anomalies in order to make a decision.
+- This project applies LSTM autoencoders in Keras and other unsupervised algorithms (Isolation Forest, One-class SVM, DBSCAN) to detect anomalies with the S&P 500 time series data. By detecting anomalies, this project aims to answer questions like when one should sell/buy a stock and how early can one capture the anomalies in order to make a decision.
 
 ## Data Ingestion
 - **Data Source**: [S&P500 Daily Prices 1986-2018](https://www.kaggle.com/pdquant/sp500-daily-19862018).
@@ -42,9 +42,12 @@
   - `IsolationForest(contamination=0.01, random_state=SEED)`
   - `OneClassSVM(nu=0.01)`
   - `DBSCAN(eps=0.01, min_samples=5)`
-- Remark
-<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn.gif width="55%">
-<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn_zoomed.gif width="55%">
+  
+<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn.gif width="75%">
+
+<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn_zoomed.gif width="75%">
+
+- Remark: other than the anomalies identified by LSTM, the other algorithms capture anomalies in Jan, May, June and July, 2018. DBSCAN further identifies anomalies in early December, 2016, early February, 2017 and early October, 2017.
 
 ## Historical Research and Business implications
 - Anomalies occurred at early February, 2018 and late March, 2018.
