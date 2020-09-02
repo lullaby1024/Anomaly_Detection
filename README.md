@@ -7,18 +7,20 @@
   - The S&P 500, or simply the S&P, is a stock market index that measures the stock performance of 500 large companies listed on stock exchanges in the United States. It is one of the most commonly followed equity indices, and many consider it to be one of the best representations of the U.S. stock market ([Wikipedia](https://en.wikipedia.org/wiki/S%26P_500_Index)).
   - 8192 rows
   - 2 columns: `date` and `close`, which is the daily closing price.
-  
+
 ## Data Preprocessing
-### Train-test-split
-- Since the time series objects are NOT independent, the training and test set were splitted in sequence, with the first 90% of data as the training set and the rest as the test set.
-- The training set was then splitted to a validation set with a proportion of 10%.
 ### Standardization
 - The closing prices are standardized to have 0 mean and unit variance.
 
-## Temporalizing data for train-test-split
+## LSTM
+### More preprocessing
+#### Train-test-split
+- Since the time series objects are NOT independent, the training and test set were splitted in sequence, with the first 90% of data as the training set and the rest as the test set.
+- The training set was then splitted to a validation set with a proportion of 10%.
+#### Temporalizing data for train-test-split
 - Subsequences were created with a time step of 30 so that a 30-day window was taken into consideration.
 
-## Model
+### Model
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/model.png" width="35%">
 
 - **Baseline**: 32 units in LSTM layers, 0.2 dropout rate, 0.01 learning rate
@@ -27,12 +29,18 @@
 - Early stopping was applied in training to prevent overfitting. 
   - Patience was set to 3 so that no improvement in 3 epochs will terminate training.
 
-## Detecting Anomalies
+### Detecting Anomalies
 - A data point is identified as anomaly if its test loss exceeds the **threshold**.
 - From the distribution of training loss (MAE), since most training losses (90%) fall below 0.7, threshold was set to 0.7.
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/test_loss.png" width="65%">
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies.png" width="65%">
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_zoomed.png" width="65%">
+
+## Other ML techniques
+- For comparison, other unsupervised ML techniques, including Isolation Forest, One-class SVM and DBSCAN, were employed for anomaly detection. The test date range is identical to that used for the LSTM, which starts from '2015-03-31'. 
+<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn.png width="55%">
+<img src=https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_sklearn_zoomed.png width="55%">
+
 
 ## Historical Research and Business implications
 - Anomalies occurred at early February, 2018 and late March, 2018.
