@@ -66,3 +66,8 @@
 - The LSTM network seems to capture the anomalies in S&P Index well as evidenced by historical data.
 - The predictions by the network were trained on a 30-day window.
   - In other words, we can utilize the network to forecast a drastic change in the stock market as early as 30 days before the change takes place.
+
+## Next-steps
+- Increase model complexity (adding layers)
+- Application: forecasting (use encoded features + NN)
+  - Compare with regular LSTM
