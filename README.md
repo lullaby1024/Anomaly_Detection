@@ -30,8 +30,8 @@
   - Patience was set to 3 so that no improvement in 3 epochs will terminate training.
 
 ### Detecting Anomalies
-- A data point is identified as anomaly if its test loss exceeds the **threshold**.
-- From the distribution of training loss (MAE), since most training losses (90%) fall below 0.7, threshold was set to 0.7.
+- A data point is identified as an anomaly if its test loss exceeds the **threshold**.
+- From the distribution of training loss (MAE), since most training losses (90%) fall below 0.7, the threshold was set to 0.7.
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/test_loss.png" width="65%">
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies.png" width="65%">
 <img src="https://github.com/lullaby1024/Anomaly_Detection/blob/master/img/anomalies_zoomed.png" width="65%">
@@ -50,7 +50,7 @@
 - Remark: other than the anomalies identified by LSTM, the other algorithms capture anomalies in Jan, May, June and July, 2018. DBSCAN further identifies anomalies in early December, 2016, early February, 2017 and early October, 2017.
 
 ## Historical Research and Business implications
-- Anomalies occurred at early February, 2018 and late March, 2018.
+- Anomalies occurred in early February, 2018 and late March, 2018.
 
 ### February, 2018
 - There was a steady increasing trend in the closing prices until the sharp drop in February.
@@ -58,11 +58,11 @@
     - *Reference: [February was an insane month for the stock market](https://money.cnn.com/2018/02/28/investing/stock-market-february-dow-jones/index.html)*
     
 ### March, 2018
-- A high votality was observed at the end of March.
+- A high volatility was observed at the end of March.
   - **Historical evidence**: March 2018 was marked as the worst March in 17 years for the S&P Index. "Investors wrestled with import tariffs announced by President Donald Trump’s administration on China and jitters around the Federal Reserve’s ability to avoid pushing the economy into recession as it normalizes monetary policy from crisis-era levels, against a backdrop of fiscal stimulus that risks overheating an economy that is in its ninth year of expansion."
     - *Reference: [March Madness: The Dow is on the brink of logging its ugliest March loss in nearly 40 years](https://www.marketwatch.com/story/dow-industrials-threaten-to-log-their-ugliest-march-loss-in-17-years-2018-03-22)*
 
 ### Insights
 - The LSTM network seems to capture the anomalies in S&P Index well as evidenced by historical data.
-- The predictions by the network was trained on a 30-day window.
+- The predictions by the network were trained on a 30-day window.
   - In other words, we can utilize the network to forecast a drastic change in the stock market as early as 30 days before the change takes place.
